@@ -1,6 +1,7 @@
 SET SERVEROUTPUT ON FORMAT WRAPPED;
+SET DEFINE ON;
 DECLARE
-    tableName VARCHAR2(40) := 'Н_ЛЮДИ';
+    tableName VARCHAR2(40) := '&1';
     colNo VARCHAR2(128) := 'No.';
     colName VARCHAR2(128) := 'Имя столбца';
     colAttr VARCHAR2(128) := 'Атрибуты';
