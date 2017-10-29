@@ -1,0 +1,6 @@
+db_name="lastlaw"
+sga_max_size=750M
+db_block_size=8192
+db_recovery_file_dest="/u01/rjb12/lastlaw/flash_recovery_area"
+db_recovery_file_dest_size=2G
+control_files = (/u01/rjb12/lastlaw/ora_control1.ctl, /u01/rjb12/lastlaw/ora_control2.ctl)
