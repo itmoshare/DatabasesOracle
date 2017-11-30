@@ -1,0 +1,70 @@
+
+helper : cat ~/.ssh/id_rsa.pub | ssh user@machine "mkdir ~/.ssh; cat >> ~/.ssh/authorized_keys"
+on db181
+sqlplus //turn on archivelog
+    shutdown immediate;
+    startup mount;
+    alter database archivelog;
+    alter database open;
+
+
+sqlplus 
+    create pfile='/u01/lab3/backup/s191999.ora' from spfile; //one time for second db
+
+
+rman //create backup
+    rman target /
+    backup current controlfile for standby format '/u01/lab3/backup/replica.ctl';
+    BACKUP DATABASE PLUS ARCHIVELOG;
+
+
+
+
+on db182
+
+scp -r oracle@db181:/u01/rjb12/lastlaw/flash_recovery_area/* /u01/rjb12/lastlaw/flash_recovery_area/
+scp oracle@db181:/u01/lab3/backup/replica.ctl /u01/lab3/backup/replica.ctl
+
+sqlplus 
+    connect sys as sysdba;
+    startup nomount pfile='/u01/lab3/inits191999_rep.ora';
+    create spfile from pfile='/u01/lab3/inits191999_rep.ora';
+    shutdown immediate;
+    startup mount;
+//restoring
+rman
+    shutdown;
+    startup mount;
+    restore database;
+    recover database;
+    alter database open;
+
+
+scp -r oracle@db181:/u01/rjb12/lastlaw/flash_recovery_area/LASTLAW/archivelog/* /u01/rjb12/lastlaw/flash_recovery_area/LASTLAW/archivelog/*
+
+rman target / << EOF
+shutdown;
+startup mount;
+run {
+    set until time= "to_date('30/11/2017 23:09:00','dd/mm/yyyy hh24:mi:ss')";
+    recover database;
+}
+
+recover database until time 'to_char(sysdate,'yyyy-mm-dd:hh24:mi:ss')'
+
+
+restore database UNTIL TIME 'to_date('30/11/2017 11:06:00 pm','mm/dd/yyyy hh:mi:ss am')';;
+
+set until time= "to_date('30/11/2017 23:09:00','dd/mm/yyyy hh24:mi:ss')";
+
+
+
+sqlplus "sys/sd as sysdba" select current_scn from v$database; >> scn.txt
+
+
+sed '$d' scn.txt >> scn.txt
+
+
+
+
+
