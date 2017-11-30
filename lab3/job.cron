@@ -1,0 +1,1 @@
+10 * * * * ./u01/lab3/recover_from_remote.sh
