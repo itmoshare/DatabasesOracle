@@ -1,5 +1,3 @@
-sqlplus "sys/uze319 as sysdba" @taldb181.sql
-
 rman target / << EOF
 STARTUP MOUNT;
 run {
@@ -7,6 +5,3 @@ run {
 }
 exit
 EOF
-
-./backupdb181.sh
-
