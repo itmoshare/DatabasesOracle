@@ -1,4 +1,4 @@
-startup
+startup;
 
 CREATE DISKGROUP beautifulcheetah EXTERNAL REDUNDANCY DISK
 	'/u01/beautifulcheetah/beautifulcheetah0',

@@ -1,0 +1,10 @@
+export PATH=${PATH}:/home/dima/Documents/soft/sqlplus/bin 
+. ./1_new_user_frightenedblackdevourer.sh
+. ./2_list_sessions_frightenedblackdevourer.sh
+. ./3_create_session_frightenedblackdevourer.sh
+. ./4_new_user_furiousyellowdrone.sh
+. ./5_close_sessions_frightenedblackdevourer.sh
+. ./6_new_user_emotionalpinkdefiler.sh
+. ./7_new_user_disappointedpurplelarva.sh
+. ./8_new_user_ecstaticpurpledrone.sh
+. ./9_close_sessions_ecstaticpurpledrone.sh

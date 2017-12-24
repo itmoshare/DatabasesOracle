@@ -3,10 +3,10 @@
 #create richlion files
 mkdir -p "/u01/richlion";
 for((n = 0; n < 5; n++)) do
-    /usr/sbin/mkfile -n 50m "/u01/richlion/richlion$n"
+    /usr/sbin/mkfile -n 100m "/u01/richlion/richlion$n";
 done;
 
-asmcmd dsset "/u01/beautifulcheetah/*,/u01/richlion/*,/u01/uglyspider/*,/u01/richlion/*";
+asmcmd dsset "/u01/beautifulcheetah/*,/u01/cutefox/*,/u01/uglyspider/*,/u01/richlion/*";
 
 cat << 'EOF' | sqlplus / as sysasm
 CREATE DISKGROUP richlion EXTERNAL REDUNDANCY DISK

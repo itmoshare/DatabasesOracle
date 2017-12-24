@@ -2,10 +2,10 @@
 #create uglyspider files
 mkdir -p "/u01/uglyspider";
 for((n = 0; n < 5; n++)) do
-    /usr/sbin/mkfile -n 50m "/u01/uglyspider/uglyspider$n"
+    /usr/sbin/mkfile -n 50m "/u01/uglyspider/uglyspider$n";
 done;
 
-asmcmd dsset "/u01/beautifulcheetah/*,/u01/uglyspider/*,/u01/uglyspider/*";
+asmcmd dsset "/u01/beautifulcheetah/*,/u01/cutefox/*,/u01/uglyspider/*";
 
 cat << 'EOF' | sqlplus / as sysasm
 CREATE DISKGROUP uglyspider EXTERNAL REDUNDANCY DISK
