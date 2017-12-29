@@ -1,0 +1,9 @@
+touch /share/intriguedgoliath/ocr
+chown root:oinstall /share/intriguedgoliath/ocr
+chmod 640 /share/intriguedgoliath/ocr
+ocrconfig -add /share/intriguedgoliath/ocr
+touch /share/jealousgoliath/ocr
+chown root:oinstall /share/jealousgoliath/ocr
+chmod 640 /share/jealousgoliath/ocr
+ocrconfig -replace /share/intriguedgoliath/ocr -replacement /share/jealousgoliath/ocr
+ocrconfig -delete /share/intriguedgoliath/ocr

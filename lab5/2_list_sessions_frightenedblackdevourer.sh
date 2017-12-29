@@ -4,4 +4,4 @@ EOF
 
 
 
-#"SELECT sid , serial#, inst_id FROM gv\$session WHERE username=upper('furiousyellowdrone');"
+#"SELECT sid , serial#, inst_id FROM gv$session WHERE username=upper('furiousyellowdrone');"

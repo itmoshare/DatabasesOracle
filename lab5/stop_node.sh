@@ -1,0 +1,1 @@
+srvctl stop instance -db betrayedobserver -i betrayedobserver0

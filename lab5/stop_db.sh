@@ -1,0 +1,1 @@
+srvctl stop database -db betrayedobserver
